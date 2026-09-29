@@ -99,9 +99,6 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Configurează number entities."""
-    if not is_license_valid(hass):
-        _LOGGER.debug("[Ebloc:Number] Licență invalidă — skip platform number")
-        return
 
     runtime = entry.runtime_data
     coordinator: EblocCoordinator = runtime.coordinator

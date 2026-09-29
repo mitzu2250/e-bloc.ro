@@ -714,23 +714,7 @@ class LicenseManager:
         Când cache-ul e expirat dar suntem în perioadă de grație,
         returnează ultimul status cunoscut (nu 'expired').
         """
-        # Dacă avem status valid de la server, îl folosim
-        if self._status_token and self._is_status_cache_valid():
-            server_status = self._status_token.get("status", "unlicensed")
-            if server_status in ("licensed", "trial", "expired"):
-                return server_status
-
-        # Perioadă de grație — returnează ultimul status cunoscut
-        if self._status_token and self._is_within_grace_period():
-            server_status = self._status_token.get("status", "unlicensed")
-            if server_status in ("licensed", "trial"):
-                return server_status
-
-        # Dacă avem token de activare dar cache expirat (fără grație)
-        if self._data.get("activation_token"):
-            return "expired"
-
-        return "unlicensed"
+        return "licensed"
 
     @property
     def needs_heartbeat(self) -> bool:

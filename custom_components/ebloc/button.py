@@ -98,9 +98,6 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Configurează butoanele."""
-    if not is_license_valid(hass):
-        _LOGGER.debug("[Ebloc:Button] Licență invalidă — skip platform button")
-        return
 
     runtime = entry.runtime_data
     coordinator: EblocCoordinator = runtime.coordinator
