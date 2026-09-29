@@ -179,9 +179,9 @@ class NrPersoaneNumber(EblocNumber):
         super().__init__(coordinator, id_user)
         self._id_asoc = id_asoc
         self._id_ap = id_ap
-        self._attr_name = "Nr. persoane"
+        self._attr_name = f"Nr. persoane (apartament {id_ap})"
         self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_nr_pers"
-        self._custom_entity_id = f"number.{DOMAIN}_{id_user}_{id_asoc}_nr_persoane_selector"
+        self._custom_entity_id = f"number.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_nr_persoane_selector"
 
         # Fallback: ultimul nr. persoane din API (nr_pers / 1000)
         self._value: float = 0
@@ -240,9 +240,9 @@ class IndexContorNumber(EblocNumber):
         titlu = contor_def.get("titlu", f"Contor {id_contor}")
         titlu_slug = ha_slugify(titlu)
 
-        self._attr_name = f"Index {titlu} (selector)"
-        self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_contor}_index"
-        self._custom_entity_id = f"number.{DOMAIN}_{id_user}_{id_asoc}_index_{titlu_slug}_selector"
+        self._attr_name = f"Index {titlu} (apartament {id_ap}, selector)"
+        self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_{id_contor}_index"
+        self._custom_entity_id = f"number.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_index_{titlu_slug}_selector"
 
         # Fallback: ultimul index disponibil (index_nou > index_vechi > 0)
         # Dacă se apasă butonul din greșeală, retrimite ultimul index valid

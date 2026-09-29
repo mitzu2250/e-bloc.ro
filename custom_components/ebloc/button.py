@@ -181,12 +181,12 @@ class TrimiteIndexButton(EblocButton):
 
         titlu = contor_def.get("titlu", f"Contor {id_contor}")
         titlu_slug = ha_slugify(titlu)
-        self._attr_name = f"Trimite index {titlu}"
-        self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_contor}_trimite_index"
-        self._custom_entity_id = f"button.{DOMAIN}_{id_user}_{id_asoc}_trimite_index_{titlu_slug}"
+        self._attr_name = f"Trimite index {titlu} (apartament {id_ap})"
+        self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_{id_contor}_trimite_index"
+        self._custom_entity_id = f"button.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_trimite_index_{titlu_slug}"
 
         # unique_id al number entity corespunzător
-        self._number_uid = f"{DOMAIN}_{id_user}_{id_asoc}_{id_contor}_index"
+        self._number_uid = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_{id_contor}_index"
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -300,9 +300,9 @@ class TrimiteNrPersButton(EblocButton):
         self._id_asoc = id_asoc
         self._id_ap = id_ap
         self._luna = luna
-        self._attr_name = "Trimite nr. persoane"
+        self._attr_name = f"Trimite nr. persoane (apartament {id_ap})"
         self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_trimite_nr_pers"
-        self._custom_entity_id = f"button.{DOMAIN}_{id_user}_{id_asoc}_trimite_nr_persoane"
+        self._custom_entity_id = f"button.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_trimite_nr_persoane"
 
         # unique_id al number entity corespunzător
         self._number_uid = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_nr_pers"

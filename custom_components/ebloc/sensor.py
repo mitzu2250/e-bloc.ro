@@ -538,9 +538,9 @@ class IndexContorSensor(EblocEntity):
         titlu = contor_def.get("titlu", f"Contor {id_contor}")
         titlu_slug = ha_slugify(titlu)
         self._titlu = titlu
-        self._attr_name = f"Index {titlu}"
-        self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_contor}"
-        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_index_{titlu_slug}"
+        self._attr_name = f"Index {titlu} (apartament {id_ap})"
+        self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_{id_contor}"
+        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_index_{titlu_slug}"
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -670,9 +670,9 @@ class FacturaRestantaSensor(EblocEntity):
         self._id_asoc = id_asoc
         self._id_ap = id_ap
         self._ap_info = ap_info
-        self._attr_name = "Factură restantă"
+        self._attr_name = f"Factură restantă (apartament {id_ap})"
         self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_factura_restanta"
-        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_factura_restanta"
+        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_factura_restanta"
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -781,9 +781,9 @@ class ArhivaPlatiSensor(EblocEntity):
         super().__init__(coordinator, id_user)
         self._id_asoc = id_asoc
         self._id_ap = id_ap
-        self._attr_name = "Arhivă plăți"
+        self._attr_name = f"Arhivă plăți (apartament {id_ap})"
         self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_plati"
-        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_arhiva_plati"
+        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_arhiva_plati"
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -852,9 +852,9 @@ class NrPersoaneSensor(EblocEntity):
         super().__init__(coordinator, id_user)
         self._id_asoc = id_asoc
         self._id_ap = id_ap
-        self._attr_name = "Număr persoane"
+        self._attr_name = f"Număr persoane (apartament {id_ap})"
         self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_nr_pers"
-        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_numar_persoane"
+        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_numar_persoane"
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -899,9 +899,9 @@ class TicheteSensor(EblocEntity):
         super().__init__(coordinator, id_user)
         self._id_asoc = id_asoc
         self._id_ap = id_ap
-        self._attr_name = "Tichete"
+        self._attr_name = f"Tichete (apartament {id_ap})"
         self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_tichete"
-        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_tichete"
+        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_tichete"
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -1026,9 +1026,9 @@ class CitirePermisaSensor(EblocEntity):
         super().__init__(coordinator, id_user)
         self._id_asoc = id_asoc
         self._id_ap = id_ap
-        self._attr_name = "Citire permisă"
+        self._attr_name = f"Citire permisă (apartament {id_ap})"
         self._attr_unique_id = f"{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_citire_permisa"
-        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_citire_permisa"
+        self._custom_entity_id = f"sensor.{DOMAIN}_{id_user}_{id_asoc}_{id_ap}_citire_permisa"
 
     @property
     def device_info(self) -> DeviceInfo:
