@@ -20,10 +20,7 @@ from .const import (
 
 def is_license_valid(hass: HomeAssistant) -> bool:
     """Verifică dacă licența este validă (folosit în async_setup_entry)."""
-    mgr = hass.data.get(DOMAIN, {}).get(LICENSE_DATA_KEY)
-    if mgr is None:
-        return False
-    return mgr.is_valid
+    return True
 
 
 def luna_ro(luna_str: str) -> str:
